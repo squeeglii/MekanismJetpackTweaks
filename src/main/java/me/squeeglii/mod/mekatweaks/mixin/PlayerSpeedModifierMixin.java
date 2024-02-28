@@ -33,7 +33,7 @@ public abstract class PlayerSpeedModifierMixin implements IJetpackUser {
         double forwardMult = forwardMultProp.get() / 20;
         double strafeMult = strafeMultProp.get() / 20;
 
-        double rotation = Math.toRadians(thiss.getYRot());
+        double rotation = -Math.toRadians(thiss.getYRot());
 
         double x = thiss.xxa * strafeMult;
         double z = thiss.zza * forwardMult;

@@ -37,7 +37,7 @@ minecraft {
 
         // applies to all the run configs below
         configureEach {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run/misc')
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
@@ -51,15 +51,18 @@ minecraft {
 
         client {
             property 'forge.enabledGameTestNamespaces', mod_id
+            workingDirectory project.file('run/client')
         }
 
         server {
             property 'forge.enabledGameTestNamespaces', mod_id
             args '--nogui'
+            workingDirectory project.file('run/server')
         }
 
         gameTestServer {
             property 'forge.enabledGameTestNamespaces', mod_id
+            workingDirectory project.file('run/gametest')
         }
 
         data {
