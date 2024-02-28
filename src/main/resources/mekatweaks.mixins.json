@@ -5,6 +5,7 @@
     "compatibilityLevel": "JAVA_8",
     "refmap": "MekanismTweaks.refmap.json",
     "mixins": [
+        "JetpackVerticalityModifierMixin",
         "PlayerSpeedModifierMixin"
     ],
     "client": [

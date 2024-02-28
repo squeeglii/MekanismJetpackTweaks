@@ -3,7 +3,6 @@ package me.squeeglii.mod.mekatweaks.mixin;
 import me.squeeglii.mod.mekatweaks.IJetpackUser;
 import me.squeeglii.mod.mekatweaks.MekanismTweaks;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.spongepowered.asm.mixin.Mixin;
@@ -40,9 +39,6 @@ public abstract class PlayerSpeedModifierMixin implements IJetpackUser {
 
         double newX = (x * Math.cos(rotation)) - (-z * Math.sin(rotation));
         double newZ = (x * Math.sin(rotation)) + (z * Math.cos(rotation));
-
-        if(thiss instanceof Player)
-            MekanismTweaks.LOGGER.info("x: %s, z: %s".formatted(newX, newZ));
 
         Vec3 oldMove = thiss.getDeltaMovement();
         thiss.setDeltaMovement(oldMove.add(newX, 0, newZ));
