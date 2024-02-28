@@ -29,6 +29,7 @@ java {
 
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     copyIdeResources = true
 
 
@@ -76,15 +77,15 @@ mixin {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven {
-        url 'https://modmaven.dev/'
-    }
+    maven { url "https://modmaven.dev/" }
+    maven { url "https://maven.shedaniel.me/" }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// Mekanism
+    implementation fg.deobf("mekanism:Mekanism:${mekanism_version}")// Mekanism
+    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
@@ -98,7 +99,8 @@ tasks.named('processResources', ProcessResources).configure {
             mod_authors: mod_authors, mod_description: mod_description,
 
             "mekanism_version": mekanism_version,
-            "mekanism_version_range": mekanism_version_range
+            "mekanism_version_range": mekanism_version_range,
+            "cloth_config_version": cloth_config_version
     ]
 
     inputs.properties replaceProperties
