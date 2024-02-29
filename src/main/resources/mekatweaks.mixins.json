@@ -3,7 +3,7 @@
     "minVersion": "0.8",
     "package": "me.squeeglii.mod.mekatweaks.mixin",
     "compatibilityLevel": "JAVA_8",
-    "refmap": "MekanismTweaks.refmap.json",
+    "refmap": "mekatweaks.refmap.json",
     "mixins": [
         "JetpackVerticalityModifierMixin",
         "PlayerSpeedModifierMixin"
